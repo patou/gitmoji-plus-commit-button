@@ -34,7 +34,7 @@ dependencies {
     //implementation("org.jetbrains.kotlin:kotlin-stdlib")
     implementation("com.google.code.gson:gson:2.13.1")
     implementation("com.squareup.okhttp3:okhttp:5.3.2")
-    implementation("org.yaml:snakeyaml:2.4")
+    implementation("org.yaml:snakeyaml:2.5")
     testImplementation(libs.junit)
     testImplementation(libs.opentest4j)
 
