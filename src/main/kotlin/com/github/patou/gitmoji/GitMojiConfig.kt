@@ -275,7 +275,7 @@ class GitMojiConfig(private val project: Project) : SearchableConfigurable {
 
     private fun isValidHttpUrl(url: String): Boolean {
         return try {
-            val uri = URI(url)
+            val uri = URI(url.replace("{locale}", "en_US"))
             val scheme = uri.scheme?.lowercase()
             (scheme == "http" || scheme == "https") && !uri.host.isNullOrBlank()
         } catch (_: Exception) {
