@@ -234,7 +234,8 @@ class GitMojiConfig(private val project: Project) : SearchableConfigurable {
             else -> textAfterUnicodeOptions.indexOf(textAfterUnicodeConfig)
         }
         languages.selectedIndex = languageOptions.indexOf(languagesConfig)
-        gitmojiSourceField.selectedIndex = GitmojiSourceType.OPTIONS.indexOfFirst { it.id == gitmojiSourceConfig.id }
+        val selectedIndex = GitmojiSourceType.OPTIONS.indexOfFirst { it.id == gitmojiSourceConfig.id }
+        gitmojiSourceField.selectedIndex = if (selectedIndex < 0) 0 else selectedIndex
         gitmojiJsonUrlField.text = gitmojiJsonUrlConfig
         localizationUrlField.text = localizationUrlConfig
         setGitmojiSourceFieldsVisibility(gitmojiSourceConfig)
