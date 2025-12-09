@@ -250,9 +250,8 @@ class GitMojiConfig(private val project: Project) : SearchableConfigurable {
             -1 -> if (textAfterUnicodeConfig == " ") 1 else 0
             else -> textAfterUnicodeOptions.indexOf(textAfterUnicodeConfig)
         }
-        languages.selectedIndex = languageOptions.indexOf(languagesConfig)
-        val selectedIndex = GitmojiSourceType.OPTIONS.indexOfFirst { it.id == gitmojiSourceConfig.id }
-        gitmojiSourceField.selectedIndex = if (selectedIndex < 0) 0 else selectedIndex
+        languages.selectedIndex = languageOptions.indexOf(languagesConfig).coerceAtLeast(0)
+        gitmojiSourceField.selectedIndex = GitmojiSourceType.OPTIONS.indexOfFirst { it.id == gitmojiSourceConfig.id }.coerceAtLeast(0)
         gitmojiJsonUrlField.text = gitmojiJsonUrlConfig
         localizationUrlField.text = localizationUrlConfig
         setGitmojiSourceFieldsVisibility(gitmojiSourceConfig)
