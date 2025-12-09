@@ -6,9 +6,10 @@ import com.intellij.openapi.project.Project
 import okhttp3.*
 import okhttp3.Request.Builder
 import java.io.IOException
+import java.util.concurrent.CopyOnWriteArrayList
 
 object Gitmojis {
-    val gitmojis = ArrayList<GitmojiData>()
+    val gitmojis = CopyOnWriteArrayList<GitmojiData>()
 
     private fun loadGitmojiFromHTTP(project: Project) {
         val sourceType = GitmojiSourceTypeProvider.provide(project)
