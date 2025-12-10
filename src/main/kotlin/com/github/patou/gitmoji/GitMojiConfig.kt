@@ -9,7 +9,9 @@ import com.intellij.openapi.options.SearchableConfigurable
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.util.Comparing
-import java.awt.Color
+import com.intellij.ui.JBColor
+import com.intellij.ui.SeparatorFactory
+import com.intellij.util.ui.JBImageIcon
 import java.awt.Cursor
 import java.awt.Desktop
 import java.awt.FlowLayout
@@ -17,10 +19,15 @@ import java.awt.GridLayout
 import java.awt.event.MouseAdapter
 import java.awt.event.MouseEvent
 import java.net.URI
+import java.util.Locale
+import javax.imageio.ImageIO
+import javax.swing.BorderFactory
+import javax.swing.BoxLayout
 import javax.swing.JCheckBox
 import javax.swing.JComponent
 import javax.swing.JLabel
 import javax.swing.JPanel
+import javax.swing.JTextArea
 import javax.swing.JTextField
 
 class GitMojiConfig(private val project: Project) : SearchableConfigurable {
@@ -42,6 +49,7 @@ class GitMojiConfig(private val project: Project) : SearchableConfigurable {
     private val languages = ComboBox(languageOptions)
     private var textAfterUnicodeConfig: String = " "
     private var languagesConfig:String = "auto"
+    private val previewArea = JTextArea(2, 30)
 
     private val gitmojiSourceField = ComboBox(GitmojiSourceType.OPTIONS)
     private val gitmojiJsonUrlField = JTextField(40)
@@ -81,7 +89,7 @@ class GitMojiConfig(private val project: Project) : SearchableConfigurable {
         val flow = GridLayout(20, 2)
         mainPanel = JPanel(flow)
         mainPanel.add(useProjectSettings, null)
-        mainPanel.add(JPanel(), null) // empty cell
+        mainPanel.add(SeparatorFactory.createSeparator(GitmojiBundle.message("config.settings"), null), null)
         mainPanel.add(displayEmoji, null)
         mainPanel.add(useUnicode, null)
         mainPanel.add(insertInCursorPosition, null)
@@ -103,7 +111,7 @@ class GitMojiConfig(private val project: Project) : SearchableConfigurable {
 
         sourceTooltipLabel.text = gitmojiSourceConfig.tooltipText
         sourceTooltipLabel.font = sourceTooltipLabel.font.deriveFont((sourceTooltipLabel.font.size - 2).toFloat())
-        sourceTooltipLabel.foreground = Color(120, 120, 120)
+        sourceTooltipLabel.foreground = JBColor.GRAY
         sourceTooltipLabel.toolTipText = gitmojiSourceConfig.tooltipUrl
         sourceTooltipLabel.cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)
         sourceTooltipLabel.addMouseListener(object : MouseAdapter() {
@@ -124,7 +132,11 @@ class GitMojiConfig(private val project: Project) : SearchableConfigurable {
 
         gitmojiSourceField.addItemListener {
             val selectedId = getCurrentGitmojiSourceId()
-            val type = GitmojiSourceTypeMapper.fromId(selectedId, gitmojiJsonUrlField.text.trim(), localizationUrlField.text.trim())
+            val type = GitmojiSourceTypeMapper.fromId(
+                selectedId,
+                gitmojiJsonUrlField.text.trim(),
+                localizationUrlField.text.trim()
+            )
             setGitmojiSourceFieldsVisibility(type)
             updateSourceTooltip(type)
         }
@@ -140,6 +152,87 @@ class GitMojiConfig(private val project: Project) : SearchableConfigurable {
         localizationPanel.add(JLabel(GitmojiBundle.message("config.source.localizationUrl")))
         localizationPanel.add(localizationUrlField, null)
         mainPanel.add(localizationPanel)
+
+        mainPanel.add(SeparatorFactory.createSeparator(GitmojiBundle.message("config.preview"), null), null)
+
+        val previewPanel = JPanel()
+        previewPanel.layout = BoxLayout(previewPanel, BoxLayout.Y_AXIS)
+        val iconUrl = javaClass.getResource("/icons/pluginIcon.png")
+        if (iconUrl != null) {
+            val image = ImageIO.read(iconUrl)
+            val imageIcon = JBImageIcon(image)
+            val imageLabel = JLabel(imageIcon)
+            val iconPanel = JPanel(FlowLayout(FlowLayout.LEFT, 0, 0))
+            iconPanel.add(imageLabel)
+            previewPanel.add(iconPanel)
+        }
+
+        previewArea.isEditable = false
+        previewArea.lineWrap = true
+        previewArea.wrapStyleWord = true
+        previewArea.border = BorderFactory.createLineBorder(JBColor.border())
+        previewPanel.add(previewArea)
+
+        mainPanel.add(previewPanel, null)
+
+        useUnicode.addActionListener { updatePreview() }
+        insertInCursorPosition.addActionListener { updatePreview() }
+        includeGitMojiDescription.addActionListener { updatePreview() }
+        textAfterUnicode.addActionListener { updatePreview() }
+        languages.addActionListener { updatePreview() }
+    }
+
+    private fun updatePreview() {
+        val commitMessage = getTranslatedString("Commit message", languages.selectedItem as? String ?: "auto")
+        val newFeaturesMessage = getTranslatedString("Introduce new features.", languages.selectedItem as? String ?: "auto")
+
+        val messageBuilder = StringBuilder()
+        if (insertInCursorPosition.isSelected) {
+            messageBuilder.append("$commitMessage|")
+        }
+        if (useUnicode.isSelected) {
+            messageBuilder.append("✨")
+        } else {
+            messageBuilder.append(":sparkles:")
+        }
+        val separator = when (textAfterUnicode.selectedIndex) {
+            0 -> ""
+            1 -> " "
+            else -> textAfterUnicode.selectedItem as? String ?: " "
+        }
+        messageBuilder.append(separator)
+        val selectionStart = messageBuilder.length
+
+        if (includeGitMojiDescription.isSelected) {
+            messageBuilder.append(newFeaturesMessage)
+        } else if (!insertInCursorPosition.isSelected) {
+            messageBuilder.append(commitMessage)
+        }
+
+        val message = messageBuilder.toString()
+        previewArea.text = message
+        previewArea.select(selectionStart, message.length)
+    }
+
+    private fun getTranslatedString(key: String, language: String): String {
+        val lang = if (language == "auto") Locale.getDefault().toString() else language
+        return when (key) {
+            "Commit message" -> when (lang) {
+                "fr_FR" -> "Message de commit"
+                "pt_BR" -> "Mensagem do commit"
+                "ru_RU" -> "Сообщение коммита"
+                "zh_CN" -> "提交信息"
+                else -> "Commit message"
+            }
+            "Introduce new features." -> when (lang) {
+                "fr_FR" -> "Introduire de nouvelles fonctionnalités."
+                "pt_BR" -> "Introduzir novas funcionalidades."
+                "ru_RU" -> "Добавить новые функции."
+                "zh_CN" -> "引入新功能。"
+                else -> "Introduce new features."
+            }
+            else -> key
+        }
     }
 
     override fun apply() {
@@ -256,6 +349,7 @@ class GitMojiConfig(private val project: Project) : SearchableConfigurable {
         localizationUrlField.text = localizationUrlConfig
         setGitmojiSourceFieldsVisibility(gitmojiSourceConfig)
         updateSourceTooltip(gitmojiSourceConfig)
+        updatePreview()
     }
 
     private fun setGitmojiSourceFieldsVisibility(type: GitmojiSourceType) {
