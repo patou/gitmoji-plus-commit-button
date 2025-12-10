@@ -6,6 +6,7 @@
 
 - ⬆️ Update versions of dependencies
 - ✨ Configuration global or per project
+- ✨ Preview gitmoji in the configuration
 - ✨ Customize the set of gitmojis available in the plugin : Gitmoji, Conventional Gitmoji, or a custom source (thanks to @glazrtom)
 - ⬆️ Update gitmoji.json to the last version
 - 🌐 Add translation for last gitmojis
