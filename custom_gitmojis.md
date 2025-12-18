@@ -64,7 +64,7 @@ The plugin will try to download remote YAML translations. If the network fetch o
 - The plugin ships a bundled default file at [gitmojis.json](./src/main/resources/gitmojis.json). If an HTTP fetch of the configured JSON URL fails, the plugin falls back to this embedded file.
 - Default localization example file can be found at [gitmojis.yaml](./src/main/resources/gitmojis.yaml).
 - The default remote URL used by the plugin for Gitmoji source is https://gitmoji.dev/api/gitmojis
-- There is also a built-in [Conventional Gitmoji](https://conventional-gitmoji.web.app/) option, which is reduced set of Gitmojis matching the [conventional commit](https://www.conventionalcommits.org) specification.
+- There is also a built-in [Conventional Gitmoji](https://ackeecz.github.io/conventional-gitmoji/) option, which is reduced set of Gitmojis matching the [conventional commit](https://www.conventionalcommits.org) specification.
  
 
 ## Practical example — host custom JSON and YAML on GitHub
