@@ -35,7 +35,17 @@ jobs:
       changelog: ${{ steps.properties.outputs.changelog }}
       pluginVerifierHomeDir: ${{ steps.properties.outputs.pluginVerifierHomeDir }}
     steps:
-
+      - name: Free Disk Space (Ubuntu)
+          uses: jlumbroso/free-disk-space-action@v1.3.1
+          with:
+            # On supprime les gros outils inutiles pour la plupart des projets
+            tool-cache: false
+            android: true
+            dotnet: false # ATTENTION : Si vous faites du C#/.NET, mettez 'false' ici pour garder .NET !
+            haskell: true
+            large-packages: true
+            docker-images: true
+            swap-storage: true
       # Check out the current repository
       - name: Fetch Sources
         uses: actions/checkout@v6
