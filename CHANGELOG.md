@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [3.0.0] - 2025-12-22
+
 - ⬆️ Update versions of dependencies
 - ✨ Configuration global or per project
 - ✨ Preview gitmoji in the configuration
@@ -141,7 +143,8 @@
 
 - Compatibility with 2019.2
 
-[Unreleased]: https://github.com/patou/gitmoji-plus-commit-button/compare/v2.5.0...HEAD
+[Unreleased]: https://github.com/patou/gitmoji-plus-commit-button/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v2.5.0...v3.0.0
 [2.5.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v2.4.0...v2.5.0
 [2.4.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v2.3.0...v2.4.0
 [2.3.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v2.2.3...v2.3.0
