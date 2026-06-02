@@ -4,6 +4,28 @@
 
 ## [Unreleased]
 
+## [3.0.1] - 2026-06-02
+
+- Changelog update - `v3.0.0` by @github-actions[bot] in https://github.com/patou/gitmoji-plus-commit-button/pull/180
+- ⬆️ Bump gradle/actions from 5 to 6 by @dependabot[bot] in https://github.com/patou/gitmoji-plus-commit-button/pull/193
+- ⬆️ Bump codecov/codecov-action from 5 to 6 by @dependabot[bot] in https://github.com/patou/gitmoji-plus-commit-button/pull/192
+- ⬆️ Bump jtalk/url-health-check-action from 4 to 5 by @dependabot[bot] in https://github.com/patou/gitmoji-plus-commit-button/pull/191
+- ⬆️ Bump actions/upload-artifact from 6 to 7 by @dependabot[bot] in https://github.com/patou/gitmoji-plus-commit-button/pull/188
+- ⬆️ Bump org.jetbrains.kotlinx.kover from 0.9.4 to 0.9.7 by @dependabot[bot] in https://github.com/patou/gitmoji-plus-commit-button/pull/187
+- ⬆️ Bump org.yaml:snakeyaml from 2.5 to 2.6 by @dependabot[bot] in https://github.com/patou/gitmoji-plus-commit-button/pull/189
+- ⬆️ Bump gradle-wrapper from 9.2.1 to 9.3.1 by @dependabot[bot] in https://github.com/patou/gitmoji-plus-commit-button/pull/184
+- ⬆️ Bump org.jetbrains.intellij.platform from 2.10.5 to 2.11.0 by @dependabot[bot] in https://github.com/patou/gitmoji-plus-commit-button/pull/183
+- ⬆️ Bump org.jetbrains.qodana from 2025.3.1 to 2026.1.0 by @dependabot[bot] in https://github.com/patou/gitmoji-plus-commit-button/pull/198
+- ⬆️ Bump gradle-wrapper from 9.3.1 to 9.5.1 by @dependabot[bot] in https://github.com/patou/gitmoji-plus-commit-button/pull/197
+- ⬆️ Bump org.jetbrains.kotlin.jvm from 2.3.0 to 2.3.10 by @dependabot[bot] in https://github.com/patou/gitmoji-plus-commit-button/pull/185
+- 🐛 Fix display issues with chinese(#190) by @CyJaySong in https://github.com/patou/gitmoji-plus-commit-button/pull/194
+- ⬆️ Bump JetBrains/qodana-action from 2025.3 to 2026.1 by @dependabot[bot] in https://github.com/patou/gitmoji-plus-commit-button/pull/195
+- ⬆️ Bump org.jetbrains.intellij.platform from 2.11.0 to 2.16.0 by @dependabot[bot] in https://github.com/patou/gitmoji-plus-commit-button/pull/199
+- ⬆️ Bump org.jetbrains.kotlinx.kover from 0.9.7 to 0.9.8 by @dependabot[bot] in https://github.com/patou/gitmoji-plus-commit-button/pull/196
+- ⬆️ Bump org.jetbrains.kotlin.jvm from 2.3.10 to 2.3.21 by @dependabot[bot] in https://github.com/patou/gitmoji-plus-commit-button/pull/201
+- ⬆️ Bump com.google.code.gson:gson from 2.13.2 to 2.14.0 by @dependabot[bot] in https://github.com/patou/gitmoji-plus-commit-button/pull/200
+- @CyJaySong made their first contribution in https://github.com/patou/gitmoji-plus-commit-button/pull/194
+
 ## [3.0.0] - 2025-12-22
 
 - ⬆️ Update versions of dependencies
@@ -143,31 +165,32 @@
 
 - Compatibility with 2019.2
 
-[Unreleased]: https://github.com/patou/gitmoji-plus-commit-button/compare/v3.0.0...HEAD
-[3.0.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v2.5.0...v3.0.0
-[2.5.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v2.4.0...v2.5.0
-[2.4.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v2.3.0...v2.4.0
-[2.3.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v2.2.3...v2.3.0
-[2.2.3]: https://github.com/patou/gitmoji-plus-commit-button/compare/v2.2.2...v2.2.3
-[2.2.2]: https://github.com/patou/gitmoji-plus-commit-button/compare/v2.1.0...v2.2.2
-[2.1.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v2.0.0...v2.1.0
-[2.0.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v1.14.0...v2.0.0
-[1.14.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v1.13.0...v1.14.0
-[1.13.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v1.12.2...v1.13.0
-[1.12.2]: https://github.com/patou/gitmoji-plus-commit-button/compare/v1.12.1...v1.12.2
-[1.12.1]: https://github.com/patou/gitmoji-plus-commit-button/compare/v1.12.0...v1.12.1
-[1.12.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v1.11.1...v1.12.0
-[1.11.1]: https://github.com/patou/gitmoji-plus-commit-button/compare/v1.11.0...v1.11.1
-[1.11.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v1.10.0...v1.11.0
-[1.10.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v1.9.1...v1.10.0
-[1.9.1]: https://github.com/patou/gitmoji-plus-commit-button/compare/v1.9.0...v1.9.1
-[1.9.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v1.8.1...v1.9.0
-[1.8.1]: https://github.com/patou/gitmoji-plus-commit-button/compare/v1.8.0...v1.8.1
-[1.8.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v1.7.0...v1.8.0
-[1.7.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v1.6.0...v1.7.0
-[1.6.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v1.5.0...v1.6.0
-[1.5.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v1.4.2...v1.5.0
-[1.4.2]: https://github.com/patou/gitmoji-plus-commit-button/compare/v1.4.0...v1.4.2
-[1.4.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v1.3.0...v1.4.0
-[1.3.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/v1.2.0...v1.3.0
-[1.2.0]: https://github.com/patou/gitmoji-plus-commit-button/commits/v1.2.0
+[Unreleased]: https://github.com/patou/gitmoji-plus-commit-button/compare/3.0.1...HEAD
+[3.0.1]: https://github.com/patou/gitmoji-plus-commit-button/compare/3.0.0...3.0.1
+[3.0.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/2.5.0...3.0.0
+[2.5.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/2.4.0...2.5.0
+[2.4.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/2.3.0...2.4.0
+[2.3.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/2.2.3...2.3.0
+[2.2.3]: https://github.com/patou/gitmoji-plus-commit-button/compare/2.2.2...2.2.3
+[2.2.2]: https://github.com/patou/gitmoji-plus-commit-button/compare/2.1.0...2.2.2
+[2.1.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/2.0.0...2.1.0
+[2.0.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/1.14.0...2.0.0
+[1.14.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/1.13.0...1.14.0
+[1.13.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/1.12.2...1.13.0
+[1.12.2]: https://github.com/patou/gitmoji-plus-commit-button/compare/1.12.1...1.12.2
+[1.12.1]: https://github.com/patou/gitmoji-plus-commit-button/compare/1.12.0...1.12.1
+[1.12.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/1.11.1...1.12.0
+[1.11.1]: https://github.com/patou/gitmoji-plus-commit-button/compare/1.11.0...1.11.1
+[1.11.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/1.10.0...1.11.0
+[1.10.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/1.9.1...1.10.0
+[1.9.1]: https://github.com/patou/gitmoji-plus-commit-button/compare/1.9.0...1.9.1
+[1.9.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/1.8.1...1.9.0
+[1.8.1]: https://github.com/patou/gitmoji-plus-commit-button/compare/1.8.0...1.8.1
+[1.8.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/1.7.0...1.8.0
+[1.7.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/1.6.0...1.7.0
+[1.6.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/1.5.0...1.6.0
+[1.5.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/1.4.2...1.5.0
+[1.4.2]: https://github.com/patou/gitmoji-plus-commit-button/compare/1.4.0...1.4.2
+[1.4.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/1.3.0...1.4.0
+[1.3.0]: https://github.com/patou/gitmoji-plus-commit-button/compare/1.2.0...1.3.0
+[1.2.0]: https://github.com/patou/gitmoji-plus-commit-button/commits/1.2.0
