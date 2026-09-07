@@ -33,7 +33,7 @@ repositories {
 dependencies {
     //implementation("org.jetbrains.kotlin:kotlin-stdlib")
     implementation("com.google.code.gson:gson:2.14.0")
-    implementation("com.squareup.okhttp3:okhttp:5.3.2")
+    implementation("com.squareup.okhttp3:okhttp:5.4.0")
     implementation("org.yaml:snakeyaml:2.6")
     testImplementation(libs.junit)
     testImplementation(libs.opentest4j)
