@@ -7,7 +7,7 @@ import org.jetbrains.annotations.PropertyKey
 @NonNls
 private const val BUNDLE = "messages.GitmojiBundle"
 
-object GitmojiBundle : DynamicBundle(BUNDLE) {
+object GitmojiBundle : DynamicBundle.getBundle(BUNDLE) {
 
     @JvmStatic
     fun message(@PropertyKey(resourceBundle = BUNDLE) key: String, vararg params: Any) =
